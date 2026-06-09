@@ -1,227 +1,313 @@
-<!DOCTYPE html>
+<!--
+=========================================================
+* Soft UI Dashboard Tailwind - v1.0.5
+=========================================================
 
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
+* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-tailwind
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
 
 =========================================================
- -->
-<!-- beautify ignore:start -->
-<html
-  lang="en"
-  class="light-style customizer-hide"
-  dir="ltr"
-  data-theme="theme-default"
-  data-assets-path="../sneat/assets/"
-  data-template="vertical-menu-template-free"
->
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
-    />
-
-    <title>Login Basic - Pages | Sneat - Bootstrap 5 HTML Admin Template - Pro</title>
-
-    <meta name="description" content="" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../sneat/assets/img/favicon/favicon.ico" />
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="soft/build/assets/img/apple-icon.png" />
+    <link rel="icon" type="image/png" href="soft/build/assets/img/favicon.png" />
+    <title>Soft UI Dashboard Tailwind</title>
+    <!-- Fonts and icons -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet" />
+    <!-- Font Awesome Icons -->
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"></script>
+    <!-- Nucleo Icons -->
+    <link href="soft/build/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="soft/build/assets/css/nucleo-svg.css" rel="stylesheet" />
+    <!-- Main Styling -->
+    <link
+      href="soft/build/assets/css/soft-ui-dashboard-tailwind.css?v=1.0.5"
+      rel="stylesheet" />
 
-    <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="../sneat/assets/vendor/fonts/boxicons.css" />
-
-    <!-- Core CSS -->
-    <link rel="stylesheet" href="../sneat/assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="../sneat/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="../sneat/assets/css/demo.css" />
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
-
-    <!-- Page CSS -->
-    <!-- Page -->
-    <link rel="stylesheet" href="../sneat/assets/vendor/css/pages/page-auth.css" />
-    <!-- Helpers -->
-    <script src="../sneat/assets/vendor/js/helpers.js"></script>
-
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../sneat/assets/js/config.js"></script>
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script
+      defer
+      data-site="YOUR_DOMAIN_HERE"
+      src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
   </head>
 
-  <body>
-    <!-- Content -->
-
-    <div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner">
-          <!-- Register -->
-          <div class="card">
-            <div class="card-body">
-              <!-- Logo -->
-              <div class="app-brand justify-content-center">
-                <a href="index.html" class="app-brand-link gap-2">
-                  <span class="app-brand-logo demo">
-                    <svg
-                      width="25"
-                      viewBox="0 0 25 42"
-                      version="1.1"
-                      xmlns="http://www.w3.org/2000/svg"
-                      xmlns:xlink="http://www.w3.org/1999/xlink"
-                    >
-                      <defs>
-                        <path
-                          d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
-                          id="path-1"
-                        ></path>
-                        <path
-                          d="M5.47320593,6.00457225 C4.05321814,8.216144 4.36334763,10.0722806 6.40359441,11.5729822 C8.61520715,12.571656 10.0999176,13.2171421 10.8577257,13.5094407 L15.5088241,14.433041 L18.6192054,7.984237 C15.5364148,3.11535317 13.9273018,0.573395879 13.7918663,0.358365126 C13.5790555,0.511491653 10.8061687,2.3935607 5.47320593,6.00457225 Z"
-                          id="path-3"
-                        ></path>
-                        <path
-                          d="M7.50063644,21.2294429 L12.3234468,23.3159332 C14.1688022,24.7579751 14.397098,26.4880487 13.008334,28.506154 C11.6195701,30.5242593 10.3099883,31.790241 9.07958868,32.3040991 C5.78142938,33.4346997 4.13234973,34 4.13234973,34 C4.13234973,34 2.75489982,33.0538207 2.37032616e-14,31.1614621 C-0.55822714,27.8186216 -0.55822714,26.0572515 -4.05231404e-15,25.8773518 C0.83734071,25.6075023 2.77988457,22.8248993 3.3049379,22.52991 C3.65497346,22.3332504 5.05353963,21.8997614 7.50063644,21.2294429 Z"
-                          id="path-4"
-                        ></path>
-                        <path
-                          d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
-                          id="path-5"
-                        ></path>
-                      </defs>
-                      <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
-                          <g id="Icon" transform="translate(27.000000, 15.000000)">
-                            <g id="Mask" transform="translate(0.000000, 8.000000)">
-                              <mask id="mask-2" fill="white">
-                                <use xlink:href="#path-1"></use>
-                              </mask>
-                              <use fill="#696cff" xlink:href="#path-1"></use>
-                              <g id="Path-3" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-3"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
-                              </g>
-                              <g id="Path-4" mask="url(#mask-2)">
-                                <use fill="#696cff" xlink:href="#path-4"></use>
-                                <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
-                              </g>
-                            </g>
-                            <g
-                              id="Triangle"
-                              transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
-                            >
-                              <use fill="#696cff" xlink:href="#path-5"></use>
-                              <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
-                            </g>
-                          </g>
-                        </g>
-                      </g>
-                    </svg>
-                  </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
-                </a>
-              </div>
-              <!-- /Logo -->
-              <h4 class="mb-2">Welcome to Sneat! 👋</h4>
-              <p class="mb-4">Please sign-in to your account and start the adventure</p>
-
-              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email or Username</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
-                    autofocus
-                  />
-                </div>
-                <div class="mb-3 form-password-toggle">
-                  <div class="d-flex justify-content-between">
-                    <label class="form-label" for="password">Password</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small>Forgot Password?</small>
+  <body
+    class="m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500">
+    <div class="container sticky top-0 z-sticky">
+      <div class="flex flex-wrap -mx-3">
+        <div class="w-full max-w-full px-3 flex-0">
+          <!-- Navbar -->
+          <nav
+            class="absolute top-0 left-0 right-0 z-30 flex flex-wrap items-center px-4 py-2 mx-6 my-4 shadow-soft-2xl rounded-blur bg-white/80 backdrop-blur-2xl backdrop-saturate-200 lg:flex-nowrap lg:justify-start">
+            <div
+              class="flex items-center justify-between w-full p-0 pl-6 mx-auto flex-wrap-inherit">
+              <a
+                class="py-2.375 text-sm mr-4 ml-4 whitespace-nowrap font-bold text-slate-700 lg:ml-0"
+                href="soft/build/pages/dashboard.html">
+                Soft UI Dashboard
+              </a>
+              <button
+                navbar-trigger
+                class="px-3 py-1 ml-2 leading-none transition-all bg-transparent border border-transparent border-solid rounded-lg shadow-none cursor-pointer text-lg ease-soft-in-out lg:hidden"
+                type="button"
+                aria-controls="navigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span
+                  class="inline-block mt-2 align-middle bg-center bg-no-repeat bg-cover w-6 h-6 bg-none">
+                  <span
+                    bar1
+                    class="w-5.5 rounded-xs relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300"></span>
+                  <span
+                    bar2
+                    class="w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300"></span>
+                  <span
+                    bar3
+                    class="w-5.5 rounded-xs mt-1.75 relative my-0 mx-auto block h-px bg-gray-600 transition-all duration-300"></span>
+                </span>
+              </button>
+              <div
+                navbar-menu
+                class="items-center flex-grow overflow-hidden transition-all duration-500 ease-soft lg-max:max-h-0 basis-full lg:flex lg:basis-auto">
+                <ul
+                  class="flex flex-col pl-0 mx-auto mb-0 list-none lg:flex-row xl:ml-auto">
+                  <li>
+                    <a
+                      class="flex items-center px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2"
+                      aria-current="page"
+                      href="soft/build/pages/dashboard.html">
+                      <i class="mr-1 fa fa-chart-pie opacity-60"></i>
+                      Dashboard
                     </a>
-                  </div>
-                  <div class="input-group input-group-merge">
-                    <input
-                      type="password"
-                      id="password"
-                      class="form-control"
-                      name="password"
-                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
-                      aria-describedby="password"
-                    />
-                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Remember Me </label>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
-                </div>
-              </form>
-
-              <p class="text-center">
-                <span>New on our platform?</span>
-                <a href="auth-register-basic.html">
-                  <span>Create an account</span>
-                </a>
-              </p>
+                  </li>
+                  <li>
+                    <a
+                      class="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2"
+                      href="soft/build/pages/profile.html">
+                      <i class="mr-1 fa fa-user opacity-60"></i>
+                      Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2"
+                      href="soft/build/pages/sign-up.html">
+                      <i class="mr-1 fas fa-user-circle opacity-60"></i>
+                      Sign Up
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      class="block px-4 py-2 mr-2 font-normal transition-all lg-max:opacity-0 duration-250 ease-soft-in-out text-sm text-slate-700 lg:px-2"
+                      href="soft/build/pages/sign-in.html">
+                      <i class="mr-1 fas fa-key opacity-60"></i>
+                      Sign In
+                    </a>
+                  </li>
+                </ul>
+                <!-- online builder btn  -->
+                <!-- <li class="flex items-center">
+                  <a
+                    class="leading-pro ease-soft-in text-fuchsia-500 border-fuchsia-500 text-xs tracking-tight-soft bg-150 bg-x-25 rounded-3.5xl hover:border-fuchsia-500 hover:scale-102 hover:text-fuchsia-500 active:hover:border-fuchsia-500 active:hover:scale-102 active:hover:text-fuchsia-500 active:opacity-85 active:shadow-soft-xs active:bg-fuchsia-500 active:border-fuchsia-500 mr-2 mb-0 inline-block cursor-pointer border border-solid bg-transparent py-2 px-8 text-center align-middle font-bold uppercase shadow-none transition-all hover:bg-transparent hover:opacity-75 hover:shadow-none active:scale-100 active:text-white active:hover:bg-transparent active:hover:opacity-75 active:hover:shadow-none"
+                    target="_blank"
+                    href="https://www.creative-tim.com/builder/soft-ui?ref=navbar-dashboard&amp;_ga=2.76518741.1192788655.1647724933-1242940210.1644448053"
+                    >Online Builder</a
+                  >
+                </li> -->
+              </div>
             </div>
-          </div>
-          <!-- /Register -->
+          </nav>
         </div>
       </div>
     </div>
-
-    <!-- / Content -->
-
-    <div class="buy-now">
-      <a
-        href="https://themeselection.com/products/sneat-bootstrap-html-admin-template/"
-        target="_blank"
-        class="btn btn-danger btn-buy-now"
-        >Upgrade to Pro</a
-      >
-    </div>
-
-    <!-- Core JS -->
-    <!-- build:js assets/vendor/js/core.js -->
-    <script src="../sneat/assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../sneat/assets/vendor/libs/popper/popper.js"></script>
-    <script src="../sneat/assets/vendor/js/bootstrap.js"></script>
-    <script src="../sneat/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
-    <script src="../sneat/assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
-    <!-- Vendors JS -->
-
-    <!-- Main JS -->
-    <script src="../sneat/assets/js/main.js"></script>
-
-    <!-- Page JS -->
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <main class="mt-0 transition-all duration-200 ease-soft-in-out">
+      <section>
+        <div
+          class="relative flex items-center p-0 overflow-hidden bg-center bg-cover min-h-75-screen">
+          <div class="container z-10">
+            <div class="flex flex-wrap mt-0 -mx-3">
+              <div
+                class="flex flex-col w-full max-w-full px-3 mx-auto md:flex-0 shrink-0 md:w-6/12 lg:w-5/12 xl:w-4/12">
+                <div
+                  class="relative flex flex-col min-w-0 mt-32 break-words bg-transparent border-0 shadow-none rounded-2xl bg-clip-border">
+                  <div
+                    class="p-6 pb-0 mb-0 bg-transparent border-b-0 rounded-t-2xl">
+                    <h3
+                      class="relative z-10 font-bold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text">
+                      Welcome back
+                    </h3>
+                    <p class="mb-0">Enter your email and password to sign in</p>
+                  </div>
+                  <div class="flex-auto p-6">
+                    <form role="form">
+                      <label class="mb-2 ml-1 font-bold text-xs text-slate-700"
+                        >Email</label
+                      >
+                      <div class="mb-4">
+                        <input
+                          type="email"
+                          class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                          placeholder="Email"
+                          aria-label="Email"
+                          aria-describedby="email-addon" />
+                      </div>
+                      <label class="mb-2 ml-1 font-bold text-xs text-slate-700"
+                        >Password</label
+                      >
+                      <div class="mb-4">
+                        <input
+                          type="email"
+                          class="focus:shadow-soft-primary-outline text-sm leading-5.6 ease-soft block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-2 font-normal text-gray-700 transition-all focus:border-fuchsia-300 focus:outline-none focus:transition-shadow"
+                          placeholder="Password"
+                          aria-label="Password"
+                          aria-describedby="password-addon" />
+                      </div>
+                      <div class="min-h-6 mb-0.5 block pl-12">
+                        <input
+                          id="rememberMe"
+                          class="mt-0.54 rounded-10 duration-250 ease-soft-in-out after:rounded-circle after:shadow-soft-2xl after:duration-250 checked:after:translate-x-5.25 h-5 relative float-left -ml-12 w-10 cursor-pointer appearance-none border border-solid border-gray-200 bg-slate-800/10 bg-none bg-contain bg-left bg-no-repeat align-top transition-all after:absolute after:top-px after:h-4 after:w-4 after:translate-x-px after:bg-white after:content-[''] checked:border-slate-800/95 checked:bg-slate-800/95 checked:bg-none checked:bg-right"
+                          type="checkbox"
+                          checked="" />
+                        <label
+                          class="mb-2 ml-1 font-normal cursor-pointer select-none text-sm text-slate-700"
+                          for="rememberMe"
+                          >Remember me</label
+                        >
+                      </div>
+                      <div class="text-center">
+                        <button
+                          type="button"
+                          class="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-to-tl from-blue-600 to-cyan-400 hover:scale-102 hover:shadow-soft-xs active:opacity-85">
+                          Sign in
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                  <div
+                    class="p-6 px-1 pt-0 text-center bg-transparent border-t-0 border-t-solid rounded-b-2xl lg:px-2">
+                    <p class="mx-auto mb-6 leading-normal text-sm">
+                      Don't have an account?
+                      <a
+                        href="soft/build/pages/sign-up.html"
+                        class="relative z-10 font-semibold text-transparent bg-gradient-to-tl from-blue-600 to-cyan-400 bg-clip-text"
+                        >Sign up</a
+                      >
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full max-w-full px-3 lg:flex-0 shrink-0 md:w-6/12">
+                <div
+                  class="absolute top-0 hidden w-3/5 h-full -mr-32 overflow-hidden -skew-x-10 -right-40 rounded-bl-xl md:block">
+                  <div
+                    class="absolute inset-x-0 top-0 z-0 h-full -ml-16 bg-cover skew-x-10"
+                    style="
+                      background-image: url('soft/build/assets/img/curved-images/curved6.jpg');
+                    "></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="py-12">
+      <div class="container">
+        <div class="flex flex-wrap -mx-3">
+          <div
+            class="flex-shrink-0 w-full max-w-full mx-auto mb-6 text-center lg:flex-0 lg:w-8/12">
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              Company
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              About Us
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              Team
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              Products
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              Blog
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="mb-2 mr-4 text-slate-400 sm:mb-0 xl:mr-12">
+              Pricing
+            </a>
+          </div>
+          <div
+            class="flex-shrink-0 w-full max-w-full mx-auto mt-2 mb-6 text-center lg:flex-0 lg:w-8/12">
+            <a href="javascript:;" target="_blank" class="mr-6 text-slate-400">
+              <span class="text-lg fab fa-dribbble"></span>
+            </a>
+            <a href="javascript:;" target="_blank" class="mr-6 text-slate-400">
+              <span class="text-lg fab fa-twitter"></span>
+            </a>
+            <a href="javascript:;" target="_blank" class="mr-6 text-slate-400">
+              <span class="text-lg fab fa-instagram"></span>
+            </a>
+            <a href="javascript:;" target="_blank" class="mr-6 text-slate-400">
+              <span class="text-lg fab fa-pinterest"></span>
+            </a>
+            <a href="javascript:;" target="_blank" class="mr-6 text-slate-400">
+              <span class="text-lg fab fa-github"></span>
+            </a>
+          </div>
+        </div>
+        <div class="flex flex-wrap -mx-3">
+          <div class="w-8/12 max-w-full px-3 mx-auto mt-1 text-center flex-0">
+            <p class="mb-0 text-slate-400">
+              Copyright ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Soft by Creative Tim.
+              <span class="w-full"> Distributed by ❤️ ThemeWagon </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
+  <!-- plugin for scrollbar  -->
+  <script src="soft/build/assets/js/plugins/perfect-scrollbar.min.js" async></script>
+  <!-- main script file  -->
+  <script
+    src="soft/build/assets/js/soft-ui-dashboard-tailwind.js?v=1.0.5"
+    async></script>
 </html>
