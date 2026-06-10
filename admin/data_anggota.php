@@ -155,7 +155,7 @@ include '../koneksi.php';
                     <h1 class="modal-title fs-5">Tambah Anggota</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                  <form action="proses.php" method="post">
+                  <form action="proses_anggota.php" method="post">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label class="form-label">Nama</label>
@@ -222,7 +222,7 @@ include '../koneksi.php';
                       Edit
                   </button>
 
-                  <a href="proses.php?hapus=<?= $row['id_user']; ?>"
+                  <a href="proses_anggota.php?hapus=<?= $row['id_user']; ?>"
                     class="btn btn-sm btn-danger"
                     onclick="return confirm('Yakin ingin menghapus data ini?')">
                       Delete
@@ -240,7 +240,7 @@ include '../koneksi.php';
                         data-bs-dismiss="modal"></button>
             </div>
 
-            <form action="proses.php" method="post">
+            <form action="proses_anggota.php" method="post">
 
                 <input type="hidden"
                        name="id"
