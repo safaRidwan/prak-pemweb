@@ -1,7 +1,6 @@
 <?php
 session_start();
-require 'db.php';
-
+include 'koneksi.php';
 $errorMessage = '';
 $successMessage = '';
 

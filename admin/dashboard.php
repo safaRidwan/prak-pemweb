@@ -1,5 +1,11 @@
 <?php
 include '../koneksi.php';
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  header('Location: ../login.php');
+  exit;
+}
 ?>
 
 <!doctype html>
@@ -112,7 +118,7 @@ include '../koneksi.php';
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">My Profile</p>
                     </a>
-                    <a href="logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                    <a href="../logout.php" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
                   </div>
                 </div>
               </li>
