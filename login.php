@@ -1,3 +1,42 @@
+<?php
+session_start();
+require 'koneksi.php';
+
+$errorMessage = '';
+
+if (isset($_SESSION['user_id'])) {
+  header('Location: admin/dashboard.php');
+  exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  $username = trim($_POST['username'] ?? '');
+  $password = $_POST['password'] ?? '';
+
+  if ($username === '' || $password === '') {
+    $errorMessage = 'Username dan password wajib diisi.';
+  } else {
+    $stmt = $conn->prepare('SELECT id_user, nama, username, password, role FROM user WHERE username = ? LIMIT 1');
+    $stmt->bind_param('s', $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $user = $result->fetch_assoc();
+
+    if ($user && password_verify($password, $user['password'])) {
+      $_SESSION['user_id'] = (int) $user['id_user'];
+      $_SESSION['nama'] = $user['nama'];
+      $_SESSION['username'] = $user['username'];
+      $_SESSION['role'] = $user['role'];
+
+      header('Location: ' . (($user['role'] === 'admin') ? 'admin/dashboard.php' : 'admin/dashboard.php'));
+      exit;
+    }
+
+    $errorMessage = 'Username atau password salah.';
+  }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -24,19 +63,24 @@
                   <img src="SEODash/src/assets/images/logos/logo-light.svg" alt="">
                 </a>
                 <p class="text-center">Absensi Karangtaruna</p>
-                <form>
+                <?php if ($errorMessage !== ''): ?>
+                  <div class="alert alert-danger py-2 mb-3" role="alert">
+                    <?= htmlspecialchars($errorMessage, ENT_QUOTES, 'UTF-8') ?>
+                  </div>
+                <?php endif; ?>
+                <form method="post" action="login.php">
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Username</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" autocomplete="username" required>
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" autocomplete="current-password" required>
                   </div>
-                  <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4">Sign In</a>
+                  <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4">Sign In</button>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Buat Akun?</p>
-                    <a class="text-primary fw-bold ms-2" href="./authentication-register.html">Buat Akun</a>
+                    <a class="text-primary fw-bold ms-2" href="register.php">Buat Akun</a>
                   </div>
                 </form>
               </div>
