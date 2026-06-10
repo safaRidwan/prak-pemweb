@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($check->num_rows > 0) {
       $errorMessage = 'Username sudah digunakan, silakan pilih username lain.';
     } else {
-      $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      $hashedPassword = md5($password);
       $stmt = $conn->prepare('INSERT INTO user (nama, username, password, role) VALUES (?, ?, ?, "anggota")');
       $stmt->bind_param('sss', $nama, $username, $hashedPassword);
 
