@@ -8,7 +8,7 @@ include '../koneksi.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dashboard</title>
+  <title>Data Absensi</title>
   <link rel="shortcut icon" type="image/png" href="../SEODash/src/assets/images/logos/seodashlogo.png" />
   <link rel="stylesheet" href="../SEODash/src/assets/css/styles.min.css" />
 </head>
@@ -121,23 +121,39 @@ include '../koneksi.php';
         </nav>
       </header>
       <!--  Header End -->
+      
       <div class="container-fluid">
-        <div class="row">
-          <div class="card">
-            <div class="card-body text-center">
-              <img src="../SEODash/src/assets/images/backgrounds/product-tip.png" alt="image" class="img-fluid" width="205">
-              <h4 class="mt-7">...Halo Admin!</h4>
-              <p class="card-subtitle mt-2 mb-3">Selamat datang di website absensi.</p>
-                <button class="btn btn-primary mb-3">Pergi untuk Absen</button>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Data Absensi</h5>
+            <div class="card mb-0">
+
+                <table class="table table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
             </div>
           </div>
+        </div>
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
-              class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>Distributed by <a href="https://themewagon.com/" target="_blank"
-              class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
         </div>
       </div>
-    </div>
   </div>
   <script src="../SEODash/src/assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="../SEODash/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
