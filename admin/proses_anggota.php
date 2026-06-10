@@ -2,9 +2,7 @@
 session_start();
 include '../koneksi.php';
 
-/* ==========================
-   TAMBAH DATA
-========================== */
+//tambah data anggota
 if(isset($_POST['simpan'])){
 
     $nama = $_POST['nama'];
@@ -35,9 +33,7 @@ if(isset($_POST['simpan'])){
     exit;
 }
 
-/* ==========================
-   EDIT DATA
-========================== */
+//edit data anggota
 if(isset($_POST['update'])){
 
     $id = $_POST['id'];
@@ -65,9 +61,7 @@ if(isset($_POST['update'])){
     exit;
 }
 
-/* ==========================
-   HAPUS DATA
-========================== */
+//hapus data anggota
 if(isset($_GET['hapus'])){
 
     $id = $_GET['hapus'];
