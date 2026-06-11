@@ -3,25 +3,25 @@ session_start();
 include '../koneksi.php';
 
 //tambah data anggota
-if(isset($_POST['simpan'])){
+if (isset($_POST['simpan'])) {
 
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $password = md5($_POST['password']);
     $role = $_POST['role'];
 
-    $query = mysqli_query($conn,"
+    $query = mysqli_query($conn, "
         INSERT INTO user(nama,username,password,role)
         VALUES('$nama','$username','$password','$role')
     ");
 
-    if($query){
+    if ($query) {
         $_SESSION['pesan'] = '
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             Data anggota berhasil ditambahkan!
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>';
-    }else{
+    } else {
         $_SESSION['pesan'] = '
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             Data anggota gagal ditambahkan!
@@ -34,14 +34,14 @@ if(isset($_POST['simpan'])){
 }
 
 //edit data anggota
-if(isset($_POST['update'])){
+if (isset($_POST['update'])) {
 
     $id = $_POST['id'];
     $nama = $_POST['nama'];
     $username = $_POST['username'];
     $role = $_POST['role'];
 
-    $query = mysqli_query($conn,"
+    $query = mysqli_query($conn, "
         UPDATE user
         SET nama='$nama',
             username='$username',
@@ -49,7 +49,7 @@ if(isset($_POST['update'])){
         WHERE id_user='$id'
     ");
 
-    if($query){
+    if ($query) {
         $_SESSION['pesan'] = '
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             Data anggota berhasil diupdate!
@@ -62,16 +62,16 @@ if(isset($_POST['update'])){
 }
 
 //hapus data anggota
-if(isset($_GET['hapus'])){
+if (isset($_GET['hapus'])) {
 
     $id = $_GET['hapus'];
 
-    $query = mysqli_query($conn,"
+    $query = mysqli_query($conn, "
         DELETE FROM user
         WHERE id_user='$id'
     ");
 
-    if($query){
+    if ($query) {
         $_SESSION['pesan'] = '
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             Data anggota berhasil dihapus!
@@ -82,4 +82,3 @@ if(isset($_GET['hapus'])){
     header("Location: data_anggota.php");
     exit;
 }
-?>

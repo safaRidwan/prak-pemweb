@@ -1,11 +1,29 @@
 <?php
 include '../koneksi.php';
 session_start();
+date_default_timezone_set('Asia/Jakarta');
 
 if (!isset($_SESSION['user_id'])) {
   header('Location: ../login.php');
   exit;
 }
+
+// AUTO-UPDATE: Memastikan data kegiatan update secara realtime sebelum dihitung
+$waktu_sekarang = date('Y-m-d H:i:s');
+mysqli_query($conn, "UPDATE kegiatan SET status = 'selesai' WHERE status = 'berlangsung' AND waktu_selesai < '$waktu_sekarang'");
+
+// 1. Hitung Jumlah Anggota
+$query_anggota = mysqli_query($conn, "SELECT COUNT(*) as total FROM user WHERE role = 'anggota'");
+$total_anggota = mysqli_fetch_assoc($query_anggota)['total'];
+
+// 2. Hitung Kegiatan Berlangsung
+$query_berlangsung = mysqli_query($conn, "SELECT COUNT(*) as total FROM kegiatan WHERE status = 'berlangsung'");
+$total_berlangsung = mysqli_fetch_assoc($query_berlangsung)['total'];
+
+// 3. Hitung Kegiatan Selesai
+$query_selesai = mysqli_query($conn, "SELECT COUNT(*) as total FROM kegiatan WHERE status = 'selesai'");
+$total_selesai = mysqli_fetch_assoc($query_selesai)['total'];
+
 ?>
 
 <!doctype html>
@@ -20,12 +38,9 @@ if (!isset($_SESSION['user_id'])) {
 </head>
 
 <body>
-  <!--  Body Wrapper -->
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <!-- Sidebar Start -->
     <aside class="left-sidebar">
-      <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="dashboard.php" class="text-nowrap logo-img">
@@ -35,67 +50,33 @@ if (!isset($_SESSION['user_id'])) {
             <i class="ti ti-x fs-8"></i>
           </div>
         </div>
-        <!-- Sidebar navigation-->
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-              <span class="hide-menu">Home</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="dashboard.php" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Dashboard</span>
-              </a>
-            </li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Home</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.php" aria-expanded="false"><span><iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Dashboard</span></a></li>
           </ul>
+
+          <?php if ($_SESSION['role'] == 'admin'): ?>
+            <ul id="sidebarnav">
+              <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Kelola</span></li>
+              <li class="sidebar-item"><a class="sidebar-link" href="data_anggota.php" aria-expanded="false"><span><iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Data Anggota</span></a></li>
+              <li class="sidebar-item"><a class="sidebar-link" href="buat_kegiatan.php" aria-expanded="false"><span><iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Buat Kegiatan</span></a></li>
+            </ul>
+            <ul id="sidebarnav">
+              <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Laporan</span></li>
+              <li class="sidebar-item"><a class="sidebar-link" href="data_absensi.php" aria-expanded="false"><span><iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Data Absensi</span></a></li>
+            </ul>
+          <?php endif; ?>
+
           <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-              <span class="hide-menu">Kelola</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="data_anggota.php" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:user-plus-rounded-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Data Anggota</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="buat_kegiatan.php" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Buat Kegiatan</span>
-              </a>
-            </li>
-          </ul>
-          <ul id="sidebarnav">
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-              <span class="hide-menu">Laporan</span>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="data_absensi.php" aria-expanded="false">
-                <span>
-                  <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
-                </span>
-                <span class="hide-menu">Data Absensi</span>
-              </a>
-            </li>
+            <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Presensi</span></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="../absensi.php" aria-expanded="false"><span><iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Absensi</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="../riwayat_absensi.php" aria-expanded="false"><span><iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Riwayat Absensi</span></a></li>
           </ul>
         </nav>
-        <!-- End Sidebar navigation -->
       </div>
-      <!-- End Sidebar scroll-->
     </aside>
-    <!--  Sidebar End -->
-    <!--  Main wrapper -->
     <div class="body-wrapper">
-      <!--  Header Start -->
       <header class="app-header">
         <nav class="navbar navbar-expand-lg navbar-light">
           <ul class="navbar-nav">
@@ -108,13 +89,12 @@ if (!isset($_SESSION['user_id'])) {
           <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
             <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
               <li class="nav-item dropdown">
-                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
-                  aria-expanded="false">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown" aria-expanded="false">
                   <img src="../SEODash/src/assets/images/profile/user-1.jpg" alt="" width="35" height="35" class="rounded-circle">
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <a href="../profile.php" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">My Profile</p>
                     </a>
@@ -126,21 +106,61 @@ if (!isset($_SESSION['user_id'])) {
           </div>
         </nav>
       </header>
-      <!--  Header End -->
+
       <div class="container-fluid">
         <div class="row">
-          <div class="card">
-            <div class="card-body text-center">
-              <img src="../SEODash/src/assets/images/backgrounds/product-tip.png" alt="image" class="img-fluid" width="205">
-              <h4 class="mt-7">...Halo Admin!</h4>
-              <p class="card-subtitle mt-2 mb-3">Selamat datang di website absensi.</p>
-                <button class="btn btn-primary mb-3">Pergi untuk Absen</button>
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-primary text-white shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-white mb-3">Jumlah Anggota</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="text-white fw-bold mb-0"><?= $total_anggota; ?></h2>
+                  <iconify-icon icon="solar:users-group-rounded-bold-duotone" class="fs-8"></iconify-icon>
+                </div>
+              </div>
             </div>
           </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card bg-warning text-white shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-white mb-3">Kegiatan Berlangsung</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="text-white fw-bold mb-0"><?= $total_berlangsung; ?></h2>
+                  <iconify-icon icon="solar:calendar-bold-duotone" class="fs-8"></iconify-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card bg-success text-white shadow-sm h-100">
+              <div class="card-body">
+                <h5 class="card-title text-white mb-3">Kegiatan Selesai</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <h2 class="text-white fw-bold mb-0"><?= $total_selesai; ?></h2>
+                  <iconify-icon icon="solar:check-circle-bold-duotone" class="fs-8"></iconify-icon>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body text-center py-5">
+                <img src="../SEODash/src/assets/images/backgrounds/product-tip.png" alt="image" class="img-fluid mb-3" width="205">
+                <h4>Halo, <?= $_SESSION['nama'] ?>!</h4>
+                <p class="card-subtitle mt-2 mb-4">Selamat datang di dashboard Sistem Presensi Karang Taruna.</p>
+                <a href="../absensi.php" class="btn btn-primary px-4">Pergi untuk Absen</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
-              class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>Distributed by <a href="https://themewagon.com/" target="_blank"
-              class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
         </div>
       </div>
     </div>
