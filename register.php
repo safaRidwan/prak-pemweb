@@ -5,7 +5,7 @@ $errorMessage = '';
 $successMessage = '';
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: admin/dashboard.php');
+  header('Location: index.php');
   exit;
 }
 

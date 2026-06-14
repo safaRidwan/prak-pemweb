@@ -5,7 +5,7 @@ require 'koneksi.php';
 $errorMessage = '';
 
 if (isset($_SESSION['user_id'])) {
-  header('Location: admin/dashboard.php');
+  header('Location: index.php');
   exit;
 }
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $_SESSION['username'] = $user['username'];
       $_SESSION['role'] = $user['role'];
 
-      header('Location: ' . (($user['role'] === 'admin') ? 'admin/dashboard.php' : 'admin/dashboard.php'));
+      header('Location: ' . (($user['role'] === 'admin') ? 'index.php' : 'index.php'));
       exit;
     }
 

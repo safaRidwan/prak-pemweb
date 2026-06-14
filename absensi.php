@@ -113,7 +113,7 @@ if (isset($_POST['absen_keluar']) && $data_presensi && !$sudah_selesai) {
         <aside class="left-sidebar">
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-between">
-                    <a href="admin/dashboard.php" class="text-nowrap logo-img">
+                    <a href="index.php" class="text-nowrap logo-img">
                         <img src="logo/logo_teks.png" alt="" width="180" height="120" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -127,7 +127,7 @@ if (isset($_POST['absen_keluar']) && $data_presensi && !$sudah_selesai) {
                             <span class="hide-menu">Home</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="admin/dashboard.php" aria-expanded="false">
+                            <a class="sidebar-link" href="index.php" aria-expanded="false">
                                 <span><iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon></span>
                                 <span class="hide-menu">Dashboard</span>
                             </a>

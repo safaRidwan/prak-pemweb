@@ -29,7 +29,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="dashboard.php" class="text-nowrap logo-img">
+          <a href="../index.php" class="text-nowrap logo-img">
             <img src="../logo/logo_teks.png" alt="" width="180" height="120" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -40,7 +40,7 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
         <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
             <li class="nav-small-cap"><i class="ti ti-dots nav-small-cap-icon fs-6"></i><span class="hide-menu">Home</span></li>
-            <li class="sidebar-item"><a class="sidebar-link" href="dashboard.php" aria-expanded="false"><span><iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Dashboard</span></a></li>
+            <li class="sidebar-item"><a class="sidebar-link" href="../index.php" aria-expanded="false"><span><iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon></span><span class="hide-menu">Dashboard</span></a></li>
           </ul>
 
           <?php if ($_SESSION['role'] == 'admin'): ?>
