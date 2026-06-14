@@ -150,7 +150,6 @@ foreach ($list_kegiatan as $k) {
                                             SELECT u.id_user, u.nama, p.jam_masuk, p.jam_keluar, p.foto 
                                             FROM user u 
                                             LEFT JOIN presensi p ON u.id_user = p.id_user AND p.id_kegiatan = '$id_kegiatan_aktif'
-                                            WHERE u.role = 'anggota'
                                             ORDER BY u.nama ASC
                                         ";
                                         $result = mysqli_query($conn, $query_absensi);
