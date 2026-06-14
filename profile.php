@@ -67,7 +67,7 @@ $data_user = mysqli_fetch_assoc($query_user);
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
           <a href="admin/dashboard.php" class="text-nowrap logo-img">
-            <img src="SEODash/src/assets/images/logos/logo-light.svg" alt="" />
+            <img src="logo/logo_teks.png" alt="" width="180" height="120" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -215,8 +215,7 @@ $data_user = mysqli_fetch_assoc($query_user);
         </div>
 
         <div class="py-6 px-6 text-center">
-          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com/" target="_blank" class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
-        </div>
+          <p class="mb-0 fs-4">Instagram  <a href="https://instagram.com/hilall_lz" target="_blank" class="pe-1 text-primary text-decoration-underline"> Hilal </a> || <a href="https://instagram.com/musaa.nz" target="_blank" class="pe-1 text-primary text-decoration-underline"> Musafa </a></p>
       </div>
     </div>
   </div>
