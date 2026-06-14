@@ -43,7 +43,7 @@ $total_selesai = mysqli_fetch_assoc($query_selesai)['total'];
     <aside class="left-sidebar">
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="dashboard.php" class="text-nowrap logo-img">
+          <a href="index.php" class="text-nowrap logo-img">
             <img src="logo/logo_teks.png" alt="" width="180" height="120" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
